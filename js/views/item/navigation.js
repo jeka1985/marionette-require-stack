@@ -4,7 +4,8 @@ define(['application', 'marionette', 'text!tpl/item/Navigation.html'], function(
             Backbone.history.on('route', this.render, this);
             this.templateHelpers = {
                 links: [
-                    { text: 'phrases', url: '#phrases' },
+                    { text: 'Phrases static text', url: '#phrases/home' },
+                    { text: 'Phrases top list', url: '#phrases' },
                     { text: 'broken link', url: '#qwerty' }
                 ],
                 getCurrentUrl: App.getCurrentUrl

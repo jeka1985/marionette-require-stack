@@ -3,9 +3,7 @@ define(
         'marionette',
         'regions/Dialog'
     ],
-
     function(Marionette, DialogRegion) {
-
         var AppClass = Marionette.Application.extend({
             history: Backbone.history,
             currentPageModule: false,
@@ -17,11 +15,9 @@ define(
                     regionClass: DialogRegion
                 }
             },
-
             onStart: function() {
                 this.history.start();
             },
-
             getCurrentUrl: function() {
                 return Backbone.history.getHash();
             }

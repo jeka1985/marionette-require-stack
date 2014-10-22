@@ -2,7 +2,6 @@ define(
     [
         'application'
     ],
-
     function(Application) {
 
         Application.module('Home', function(Home, App, Backbone, Marionette) {

@@ -2,7 +2,6 @@ define(
     [
         'application'
     ],
-
     function(Application) {
 
         Application.module('Phrases', function(Phrases, App, Backbone, Marionette) {
@@ -19,6 +18,11 @@ define(
                 },
 
                 home: function() {
+                    require(['apps/pages/Phrases/Home/home_controller'], function() {
+                        (new Phrases.Home.Controller).show()
+                    })
+                },
+                showHomePhrases: function() {
                     require(['apps/pages/Phrases/Home/home_controller'], function() {
                         (new Phrases.Home.Controller).show()
                     })

@@ -3,7 +3,6 @@ define(
         'application',
         'views/layout/OneColumn'
     ],
-
     function(Application, LayoutView) {
 
         Application.module('Phrases.Home', function(PhrasesHome, App, Backbone, Marionette, $, _) {

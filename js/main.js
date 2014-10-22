@@ -6,7 +6,6 @@ define(
         'modules/AppsManager',
         'apps/Navigation/index'
     ],
-
     function (App) {
         return App
     }

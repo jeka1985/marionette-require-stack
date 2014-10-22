@@ -4,7 +4,6 @@ define(
         'apps/pages/Home/controller',
         'apps/pages/Home/router'
     ],
-
     function(Application) {
 
         Application.module('Home', function() {

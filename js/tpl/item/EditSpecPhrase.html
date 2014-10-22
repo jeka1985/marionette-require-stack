@@ -1,33 +1,27 @@
 <script type="template">
     <div class="modal-dialog">
         <div class="modal-content">
-
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title" id="myModalLabel">Редактирование фразы</h4>
             </div>
-
             <div class="modal-body">
-
                 <div class="form-horizontal" role="form">
                     <div class="form-group">
-
                         <div class="col-sm-12">
+                            <h5>Текст фразы</h5>
                             <input type="text" class="form-control col-sm-3" id="name" name="phrase" value="<%= phrase %>">
                         </div>
-
                         <div class="col-sm-12">
+                            <h5>Описание</h5>
                             <textarea class="form-control col-sm-3" id="name" name="description"><%= description %></textarea>
                         </div>
-
                     </div>
                 </div>
             </div>
-
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary">Сохранить</button>
             </div>
-
         </div>
     </div>
 </script>

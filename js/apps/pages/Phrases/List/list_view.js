@@ -5,7 +5,6 @@ define(
         'views/composite/Phrases',
         'views/layout/OneColumn'
     ],
-
     function(Application, PhraseView, PhrasesView, LayoutView) {
 
         Application.module('Phrases.List', function(PhrasesList) {

@@ -3,7 +3,6 @@ define(
         'application',
         'apps/pages/404/controller'
     ],
-
     function(Application) {
 
         Application.module('404', function() {

@@ -4,7 +4,6 @@ define(
         'apps/pages/Phrases/controller',
         'apps/pages/Phrases/router'
     ],
-
     function(Application) {
 
         Application.module('Phrases', function() {

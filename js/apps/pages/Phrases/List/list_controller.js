@@ -4,7 +4,6 @@ define(
         'collections/Phrases',
         'apps/pages/Phrases/List/list_view'
     ],
-
     function(Application, PhrasesCollection) {
 
         Application.module('Phrases.List', function(PhrasesList, App, Backbone, Marionette) {

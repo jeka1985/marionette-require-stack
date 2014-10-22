@@ -24,7 +24,7 @@ define(['application', 'text!tpl/composite/Phrases.html', 'views/item/Phrase'], 
         },
         template: tpl,
         tagName: 'table',
-        className: 'table',
+        className: 'table phrases',
         childView: Phrase,
         childViewContainer: "tbody",
         emptyView: App.Classes.EmptyView

@@ -14,8 +14,6 @@ define(
                     }
                 },
                 startModule = function(name) {
-
-                    console.log(Application.module(name))
                     Application.module(name).start();
                     Application.trigger('module:start', name);
                 };
@@ -38,7 +36,7 @@ define(
             ModuleManager.requireModule = function(name, callback) {
                 require(['apps/pages/' + name + '/index'],
                     callback.bind(this),
-                    function(err) {
+                    function() {
                         require(['apps/pages/404/index'], function() {
                             ModuleManager.switchModule('404');
                         })
@@ -52,8 +50,9 @@ define(
                     '*any': 'loadModule'
                 },
 
-                loadModule: function(){
+                loadModule: function() {
                     var name = ModuleManager.getModuleNameByUrl();
+
                     ModuleManager.requireModule(name, function() {
                         ModuleManager.switchModule(name);
                     })

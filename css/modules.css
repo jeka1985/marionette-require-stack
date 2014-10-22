@@ -1,5 +1,17 @@
-@import url('m-table.css');
-
-.active {
+.active{
     font-weight: bold;
+}
+
+.phrases-coll-selectall{
+    width: 25px;
+}
+
+.phrases-coll-clicks,
+.phrases-coll-ctr,
+.phrases-coll-type{
+    width: 100px;
+}
+
+.phrases-coll-price{
+    width: 120px;
 }

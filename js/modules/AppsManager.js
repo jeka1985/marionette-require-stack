@@ -2,7 +2,6 @@ define(
     [
         'application'
     ],
-
     function(App) {
 
         App.module('ModuleManager', function(ModuleManager, Application, Backbone, Marionette) {

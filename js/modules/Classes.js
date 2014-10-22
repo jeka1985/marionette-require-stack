@@ -2,7 +2,6 @@ define(
     [
         'application'
     ],
-
     function(App) {
         App.module('Classes', function(Classes, App, Backbone, Marionette, $, _) {
 

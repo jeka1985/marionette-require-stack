@@ -11,6 +11,11 @@ define(
                 template: _.template('loading...')
             }),
 
+            /*
+            * Module router - Marionette.AppRouter with overwritten 'route' method
+            * with force check URL match on adding route
+            * */
+
 
             Classes.ModuleRouter = Marionette.AppRouter.extend({
 
@@ -38,6 +43,16 @@ define(
                     // при добавлении роутов используется нативный ВВ route - который вещает колбэк на указанный фрагмент
                     // расширяем - если мы уже находимся на фрагменте на который устанавливается колбэк - принудительно вызвать
                     // выполнение обработчика совпадения фрагмента
+
+                    /*
+                    * PROBLEM : AppsManager already triggered 'route' and page fragments still same,
+                    * so module router will not be checked on URL matching.
+                    *
+                    * SOLUTION : updated route method, add route to Backbone.history as usual, but also check if current page
+                    * fragment match any appRoute and call controller callbacl
+                    * */
+
+
 
                     this.forceInvokeRouteHandler(route, routeString, callback);
 

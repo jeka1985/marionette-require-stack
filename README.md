@@ -15,7 +15,7 @@ Yep, one more stack, **BUT** we resolved few issued you may be trapped in:
 **Module** its great feature in Marionette Framework, thats why its a seed for majority of app components we have.
 
 - via Module Application is extended with new features 
-```
+```javascript
 App.module('CoolFeature', function(CoolFeatur, App) {
   
   App.CoolFeature = function() {
@@ -24,7 +24,7 @@ App.module('CoolFeature', function(CoolFeatur, App) {
 });
 ```
 - on Module base we build content sub-Apps like pages (big thank to Brian Mann)
-```
+```javascript
 App.module('HomePage', function(CoolFeatur, App) {
   
   App.title.show(new App.Views.GreetingUserView({

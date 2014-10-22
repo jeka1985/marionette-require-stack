@@ -41,13 +41,13 @@ define(
 
                 topPhrases: function() {
                     phrasesCollection.fetch({
-                        url: 'ph-ten.json'
+                        url: 'js/entities/phrases/10.json'
                     })
                 },
 
                 allPhrases: function() {
                     phrasesCollection.fetch({
-                        url: 'ph-500.json'
+                        url: 'js/entities/phrases/500.json'
                     })
                 },
 

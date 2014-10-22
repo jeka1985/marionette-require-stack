@@ -1,0 +1,10 @@
+table.table{
+    width: 100%;
+    border-collapse: separate;
+    table-layout: fixed;
+}
+
+.m-table td{
+    border-top: 1px solid #ddd;
+    padding: 5px 0;
+}

@@ -1,0 +1,86 @@
+<script type="template">
+
+
+    <h2>Из чего состоит приложение</h2>
+
+        <ul class="list-group">
+            <li class="list-group-item"><b>Application</b> - точка старта, в Application содержится логика доступная все компонентам системы</li>
+            <li class="list-group-item"><b>App</b> - контентный компонент приложения, страница, контентный блок и пр.</li>
+            <li class="list-group-item"><b>Module</b> - расширение Application</li>
+            <li class="list-group-item"><b>Router</b> - маппинг между состояние урла и методами контролеров</li>
+            <li class="list-group-item"><b>Controller</b> - координатор модуля или приложения, управляет моделями и представлениями, формирует API</li>
+            <li class="list-group-item"><b>Collection</b> - набор моделей</li>
+            <li class="list-group-item"><b>Model</b> - дата</li>
+            <li class="list-group-item"><b>View</b> - представление</li>
+        </ul>
+
+
+    <h2>Картина мира</h2>
+
+
+    Точка старта - объект Application. Application "из-коробки" умеет создавать модули, имеет Meesage Bus для взаимодействия между ними,
+    Через модули расширяется доп функционалом.
+
+    На загрузке страницы, запрашивается файл main - который подключает приложение с необходимым набором модулей.
+
+    Модуль приложения AppManager - управляет модулями-приложениями. Пейджовый блок наиболее близок к сути с модулю-приложению
+
+    <img src="img/app.png">
+
+
+
+
+<h2>Все модуль.</h2>
+<pre>
+<code class="javascript">
+App.module('Phrases', function(Module, App) {
+
+    // частные перменные и функции
+    var privateSome = 'qwe',
+        privateDoSome = function() {
+          ...
+        };
+
+    // публичные
+    Module.publicMethod = function() {
+        return privateSome;
+    }
+
+})
+</code>
+</pre>
+
+
+
+<h2>Через модули расширяется функционал приложения</h2>
+<pre>
+<code class="javascript">
+App.module('Services', function(Module, App) {
+
+    App.reqres.setHandler("sendAjax", function(data, callback, ctx) {
+        $.ajax({
+            url: 'ajax.pl',
+            data: data,
+            success: callback.bind(ctx)
+        });
+    });
+
+})
+</code>
+</pre>
+
+<h2>На базе модуля создаются под-приложения</h2>
+<pre>
+<code class="javascript">
+App.module('HomePage', function(Module, App) {
+
+    App.body.show(new HomeView)
+
+})
+</code>
+</pre>
+
+
+
+
+</script>

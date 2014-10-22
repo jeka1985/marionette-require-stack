@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Marionette UI</title>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet" href="css/main.css">
+    <script data-main="js/init" src="js/libs/require.js"></script>
+    <!-- For demo only -->
+    <link rel="stylesheet" href="css/styles/default.css">
+
+
+</head>
+<body>
+    <div id="app">
+        <div id="navigation"></div>
+        <div id="content"></div>
+        <div id="footer"></div>
+        <div id="dialogs"></div>
+    </div>
+
+    <script>
+        require(['main'], function(App){
+            App.start({
+                params: {
+                    you: 'can',
+                    provide: 'some',
+                    data: 'here',
+                    to: 'app',
+                    on: 'start'
+                }
+            });
+        });
+    </script>
+</body>
+</html>

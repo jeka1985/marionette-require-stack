@@ -1,0 +1,24 @@
+<script type="template">
+
+
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#home">Marionette UI</a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-left ">
+
+                <% links.forEach(function(link) {%>
+                <li <% if (getCurrentUrl() ==  link.url.slice(1)) { %>  class="active"  <%}%>>
+                <a href="<%= link.url %>"> <%= link.text %> </a>
+                </li>
+                <%})%>
+            </ul>
+
+        </div>
+    </nav>
+
+
+</script>

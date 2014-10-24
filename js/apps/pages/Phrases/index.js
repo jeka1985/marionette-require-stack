@@ -6,7 +6,7 @@ define(
     ],
     function(Application) {
 
-        Application.module('Phrases', function() {
+        console.log(Application.module('Phrases', function() {
 
             this.startWithParent = false;
 
@@ -24,6 +24,9 @@ define(
                 delete this.controller;
                 delete this.router;
             });
-        })
+        }))
+
+
+
     }
 );

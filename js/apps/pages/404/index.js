@@ -5,7 +5,7 @@ define(
     ],
     function(Application) {
 
-        Application.module('404', function() {
+        console.log(Application.module('404', function() {
 
             this.startWithParent = false;
 
@@ -19,6 +19,6 @@ define(
                 delete this.controller;
             });
 
-        })
+        }))
     }
 );

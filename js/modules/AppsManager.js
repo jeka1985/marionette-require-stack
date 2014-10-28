@@ -5,16 +5,13 @@ define(
     function(App) {
 
         App.module('ModuleManager', function(ModuleManager, Application, Backbone, Marionette) {
+
             var currentPageModule = false,
                 stopModule = function(name) {
-                    if (name) {
-                        Application.module(name).stop();
-                        Application.trigger('module:stop', name);
-                    }
+                    name && Application.module(name).stop();
                 },
                 startModule = function(name) {
                     Application.module(name).start();
-                    Application.trigger('module:start', name);
                 };
 
             ModuleManager.getModuleNameByUrl = function() {
@@ -24,12 +21,13 @@ define(
 
             ModuleManager.switchModule = function(name) {
 
-                if (currentPageModule !== name) {
-                    stopModule(currentPageModule);
-                    startModule(name);
+                if (!name) return;
 
-                    currentPageModule = name;
-                }
+                stopModule(currentPageModule);
+                startModule(name);
+
+                currentPageModule = name;
+
             };
 
             ModuleManager.requireModule = function(name, callback) {

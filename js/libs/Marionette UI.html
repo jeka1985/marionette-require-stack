@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1251">
+    <title>Marionette UI</title>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet" href="Marionette%20UI_files/main.css">
+    <script data-main="js/init" src="Marionette%20UI_files/require.js"></script>
+    <!-- For demo only -->
+    <link rel="stylesheet" href="Marionette%20UI_files/default.css">
+
+
+<script src="Marionette%20UI_files/init.js" data-requiremodule="init" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="Marionette%20UI_files/main.js" data-requiremodule="main" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="Marionette%20UI_files/jquery-min.js" data-requiremodule="jquery" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="Marionette%20UI_files/backbone-min.js" data-requiremodule="backbone" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="Marionette%20UI_files/Backbone.js" data-requiremodule="backboneBinder" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="Marionette%20UI_files/backbone.js" data-requiremodule="marionette" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="Marionette%20UI_files/underscore-min.js" data-requiremodule="underscore" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="Marionette%20UI_files/application.js" data-requiremodule="application" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="Marionette%20UI_files/Services.js" data-requiremodule="modules/Services" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="Marionette%20UI_files/Classes.js" data-requiremodule="modules/Classes" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="Marionette%20UI_files/AppsManager.js" data-requiremodule="modules/AppsManager" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="Marionette%20UI_files/index.js" data-requiremodule="apps/Navigation/index" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="Marionette%20UI_files/Navigation.js" data-requiremodule="views/item/Navigation" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="Marionette%20UI_files/bootstrap.js" data-requiremodule="bootstrap" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="Marionette%20UI_files/highlight.js" data-requiremodule="highlight" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="Marionette%20UI_files/Dialog.js" data-requiremodule="regions/Dialog" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="Marionette%20UI_files/text.js" data-requiremodule="text" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="Marionette%20UI_files/index_002.js" data-requiremodule="apps/pages/Home/index" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="Marionette%20UI_files/controller.js" data-requiremodule="apps/pages/Home/controller" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="Marionette%20UI_files/router.js" data-requiremodule="apps/pages/Home/router" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="Marionette%20UI_files/views.js" data-requiremodule="apps/pages/Home/views" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="Marionette%20UI_files/OneColumn.js" data-requiremodule="views/layout/OneColumn" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="Marionette%20UI_files/HowItWorks.js" data-requiremodule="views/item/HowItWorks" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="Marionette%20UI_files/highlightCodeBehavior.js" data-requiremodule="behaviors/highlightCodeBehavior" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script></head>
+<body>
+    <div id="app">
+        <div id="navigation"><div>
+
+
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#home">Marionette UI</a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-left ">
+
+                
+                <li>
+                <a href="#phrases/home"> Phrases static text </a>
+                </li>
+                
+                <li>
+                <a href="#phrases"> Phrases top list </a>
+                </li>
+                
+                <li>
+                <a href="#qwerty"> broken link </a>
+                </li>
+                
+            </ul>
+
+        </div>
+    </nav>
+
+
+</div></div>
+        <div id="content"><div>
+
+
+    <h2>Из чего состоит приложение</h2>
+
+        <ul class="list-group">
+            <li class="list-group-item"><b>Application</b> - точка старта, в Application содержится логика доступная все компонентам системы</li>
+            <li class="list-group-item"><b>App</b> - контентный компонент приложения, страница, контентный блок и пр.</li>
+            <li class="list-group-item"><b>Module</b> - расширение Application</li>
+            <li class="list-group-item"><b>Router</b> - маппинг между состояние урла и методами контролеров</li>
+            <li class="list-group-item"><b>Controller</b> - координатор модуля или приложения, управляет моделями и представлениями, формирует API</li>
+            <li class="list-group-item"><b>Collection</b> - набор моделей</li>
+            <li class="list-group-item"><b>Model</b> - дата</li>
+            <li class="list-group-item"><b>View</b> - представление</li>
+        </ul>
+
+
+    <h2>Картина мира</h2>
+
+
+    Точка старта - объект Application. Application "из-коробки" умеет 
+создавать модули, имеет Meesage Bus для взаимодействия между ними,
+    Через модули расширяется доп функционалом.
+
+    На загрузке страницы, запрашивается файл main - который подключает 
+приложение с необходимым набором модулей.
+
+    Модуль приложения AppManager - управляет модулями-приложениями. 
+Пейджовый блок наиболее близок к сути с модулю-приложению
+
+    <img src="Marionette%20UI_files/app.png">
+
+
+
+
+<h2>Все модуль.</h2>
+<pre><code class="javascript hljs">
+App.module(<span class="hljs-string">'Phrases'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Module, App)</span> </span>{
+
+    <span class="hljs-comment">// частные перменные и функции</span>
+    <span class="hljs-keyword">var</span> privateSome = <span class="hljs-string">'qwe'</span>,
+        privateDoSome = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+          ...
+        };
+
+    <span class="hljs-comment">// публичные</span>
+    Module.publicMethod = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> privateSome;
+    }
+
+})
+</code>
+</pre>
+
+
+
+<h2>Через модули расширяется функционал приложения</h2>
+<pre><code class="javascript hljs">
+App.module(<span class="hljs-string">'Services'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Module, App)</span> </span>{
+
+    App.reqres.setHandler(<span class="hljs-string">"sendAjax"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(data, callback, ctx)</span> </span>{
+        $.ajax({
+            url: <span class="hljs-string">'ajax.pl'</span>,
+            data: data,
+            success: callback.bind(ctx)
+        });
+    });
+
+})
+</code>
+</pre>
+
+<h2>На базе модуля создаются под-приложения</h2>
+<pre><code class="javascript hljs">
+App.module(<span class="hljs-string">'HomePage'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Module, App)</span> </span>{
+
+    App.body.show(<span class="hljs-keyword">new</span> HomeView)
+
+})
+</code>
+</pre>
+
+
+
+
+</div></div>
+        <div id="footer"></div>
+        <div id="dialogs"></div>
+    </div>
+
+    <script>
+        require(['main'], function(App){
+            App.start({
+                params: {
+                    you: 'can',
+                    provide: 'some',
+                    data: 'here',
+                    to: 'app',
+                    on: 'start'
+                }
+            });
+        });
+    </script>
+
+
+</body></html>

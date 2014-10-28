@@ -1,6 +1,6 @@
 require.config({
     baseUrl: "js/",
-    deps: ['jquery', 'backbone', 'backboneBinder', 'marionette', 'bootstrap' , 'underscore', 'highlight', 'main'],
+    deps: ['jquery', 'backbone', 'backboneBinder', 'marionette', 'bootstrap' , 'nunjucks', 'underscore', 'highlight', 'main'],
     paths: {
         jquery: 'libs/jquery-min',
         backbone: 'libs/backbone-min',
@@ -10,10 +10,15 @@ require.config({
         bootstrap: 'libs/bootstrap',
         nunjucks: 'libs/nunjucks',
         text: 'libs/text',
-        highlight: 'libs/highlight.pack'
+        highlight: 'libs/highlight.pack',
+        slickback: 'libs/slickback.full',
+        BH: 'libs/bh'
     },
     shim: {
+
+        "BH": ["jquery"],
         "bootstrap": ["jquery"],
-        "highlight": ["jquery"]
+        "highlight": ["jquery"],
+        "slickback": ["backbone", "jquery"]
     }
 });

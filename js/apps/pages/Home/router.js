@@ -4,13 +4,13 @@ define(
     ],
     function(Application) {
 
-        Application.module('Home', function(Phrases, App) {
-             Phrases.Router = App.Classes.ModuleRouter.extend({
-                appRoutes: {
+        Application
+            .page('Home')
+                .router({
                     '': 'showOverview',
                     'home': 'showOverview'
-                }
-            })
-        })
+                })
+
+
     }
 );

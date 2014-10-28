@@ -23,10 +23,31 @@ define(['application', 'text!tpl/composite/Phrases.html', 'views/item/Phrase'], 
             }
         },
         template: tpl,
+        rowHeight: 45,
+        sliceLength: 30,
         tagName: 'table',
         className: 'table phrases',
         childView: Phrase,
         childViewContainer: "tbody",
-        emptyView: App.Classes.EmptyView
+        emptyView: App.Classes.EmptyView,
+
+        initialize: function() {
+            this.lazyRender =  _.debounce(function(e) {
+                var tablePositionTop = this.$el.offset().top,
+                    windowVerticalScroll = e.currentTarget.scrollY,
+                    origCollModels = this.collection.models.slice();
+
+                if (windowVerticalScroll > tablePositionTop) {
+                    var startSlice = Math.round((windowVerticalScroll - tablePositionTop) / this.rowHeight);
+
+                    this.collection.set(origCollModels.slice(startSlice, 30));
+
+                    console.log(this.collection.models);
+
+                }
+            }, 100).bind(this);
+
+            $(window).on("scroll", this.lazyRender);
+        }
     })
 });

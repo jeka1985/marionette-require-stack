@@ -1,51 +1,28 @@
 define(
     [
         'marionette',
-        'regions/Dialog'
+        'regions/Dialog',
+        'BH'
+
     ],
     function(Marionette, DialogRegion) {
         var AppClass = Marionette.Application.extend({
             history: Backbone.history,
             currentPageModule: false,
 
-
-            pageModule: function(name, options) {
-
-                return this.module(name, {
-                    moduleClass: Marionette.Module.extend({
-                        startWithParent: false,
-                        onStart: function() {
-                            console.log('ok')
-                        }
-                    })
-                });
+            initialize: function(){
+                this.on('all', function() {
+                    console.log('app:', arguments);
+                })
             },
 
+            bh: new BH,
 
-
-
-//            pageModule: function(name, opt) {
-//                return this.module(name, {
-//                    moduleClass: Marionette.Module.extend({
-//                        startWithParent: false,
-//                        initialize: function(options, moduleName, app) {
-//                            alert(1)
-//                        },
-//
-//                        onStart: function(options) {
-//                            alert(2)
-//                        },
-//
-//                        onStop: function(options) {
-//                            alert(3)
-//                        }
-//                    }),
-//                    define: function() {
-//                        console.log(this);
-//                    }
-//                })
-//            },
-
+            getbem: function(json) {
+                return function(model) {
+                    return json
+                }
+            },
 
             regions: {
                 navigation: '#navigation',
@@ -60,6 +37,10 @@ define(
             },
             getCurrentUrl: function() {
                 return Backbone.history.getHash();
+            },
+
+            page: function(name) {
+                return this.module(name, this.PageModule)
             }
         });
 

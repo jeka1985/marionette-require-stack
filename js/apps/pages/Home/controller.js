@@ -4,15 +4,31 @@ define(
     ],
     function(Application) {
 
-        Application.module('Home', function(Home, App, Backbone, Marionette) {
+        Application
+            .page('Home')
+                .controller(function(Module, App) {
+                    return {
+                        initialize: function() {
 
-            Home.Controller = Marionette.Controller.extend({
-                showOverview: function() {
-                    require(['apps/pages/Home/Overview/overview_controller'], function() {
-                        (new Home.Overview.Controller).show()
-                    })
-                }
-            });
-        })
+                            this.layout = new Module.views.Layout;
+
+                            App.body.show(this.layout);
+                        },
+
+                        showOverview: function() {
+                           // this.layout.center.show(new Module.views.HowItWorks);
+                            this.layout.center.show(new Module.views.BhView({ model: new Backbone.Model({ some: 'qwe' }) }));
+                        },
+
+                        sayHi: function() {
+                            alert('qwerty');
+                        },
+
+                        onDestroy: function() {
+                            console.log('ctrl destroy');
+                            this.layout.destroy()
+                        }
+                    }
+                })
     }
 );

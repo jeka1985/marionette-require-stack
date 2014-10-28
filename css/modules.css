@@ -2,6 +2,13 @@
     font-weight: bold;
 }
 
+
+.phrases
+{
+    max-height: 500px;
+}
+
+
 .phrases-coll-selectall{
     width: 25px;
 }

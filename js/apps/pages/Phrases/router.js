@@ -6,7 +6,7 @@ define(
 
         Application.module('Phrases', function(Phrases, App) {
 
-            Phrases.Router = App.Classes.ModuleRouter.extend({
+            Phrases.Router = App.ModuleRouter.extend({
                 appRoutes: {
                     'phrases': 'showTopPhrases',
                     'phrases/home': 'showHomePhrases',

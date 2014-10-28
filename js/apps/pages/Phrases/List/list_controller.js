@@ -40,7 +40,7 @@ define(
 
                 topPhrases: function() {
                     phrasesCollection.fetch({
-                        url: 'js/entities/phrases/10.json'
+                        url: 'js/entities/phrases/500.json'
                     })
                 },
 

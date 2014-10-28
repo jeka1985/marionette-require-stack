@@ -10,13 +10,95 @@ define(
                 template: _.template('loading...')
             }),
 
+            App.PageModule = Marionette.Module.extend({
+
+                startWithParent: false,
+
+                resources: {},
+
+                onStart: function() {
+                    this._manageResources('init');
+                    App.trigger('module:start', this.moduleName);
+                },
+
+                onStop: function() {
+                    this._manageResources('destroy')
+                    App.trigger('module:stop', this.moduleName);
+                },
+
+                _manageResources: function(type, definition) {
+                    this._manageResources.queue = ['views', 'controller', 'router'];
+                    this._manageResources.store = this._manageResources.store || {};
+
+                    if(type && definition) {
+                        this._manageResources.store[type] = definition;
+                    } else if (type == 'init' && arguments.length < 2) {
+                        this._manageResources.queue.forEach(function(res) {
+                            var resourceDefinition = this._manageResources.store[res];
+
+                            resourceDefinition && this.addDefinition(function() {
+                                this.resources[res] = resourceDefinition.apply(this, arguments);
+                            })
+                        }, this);
+                    } else if (type == 'destroy' && arguments.length < 2) {
+                        this.resources.controller && this.resources.controller.destroy();
+                        this.resources.router && this.resources.router.destroy()
+                    }
+                },
+
+                router: function(query) {
+                    if(_.isObject(query) || _.isFunction(query)) {
+                        this._manageResources('router', function() {
+                            query = _.isFunction(query) ? query.apply(this, arguments) : query;
+
+                            return new(App.ModuleRouter.extend({
+                                appRoutes: query,
+                                controller: this.resources.controller
+                            }));
+                        })
+                    }
+                },
+
+                controller: function(query) {
+                    if(_.isObject(query) || _.isFunction(query)) {
+                        this._manageResources('controller', function() {
+
+                            query = _.isFunction(query) ? query.apply(this, arguments) : query;
+
+                            _.keys(query).forEach(function(viewName){
+                                this.controller[viewName] = query[viewName]
+                            }, this);
+
+
+                            return new (
+                                Marionette.Controller.extend(query)
+                            );
+                        })
+                    }
+                },
+
+                views: function(query) {
+                    if(_.isObject(query) || _.isFunction(query)) {
+                        this._manageResources('views', function() {
+                            query = _.isFunction(query) ? query.apply(this, arguments) : query;
+                            _.keys(query).forEach(function(viewName){
+                                this.views[viewName] = query[viewName]
+                            }, this);
+
+                            return query
+                        });
+                    }
+                }
+            });
+
+
             /*
             * Module router - Marionette.AppRouter with overwritten 'route' method
             * with force check URL match on adding route
             * */
 
 
-            Classes.ModuleRouter = Marionette.AppRouter.extend({
+            App.ModuleRouter = Marionette.AppRouter.extend({
 
                 forceInvokeRouteHandler: function(routeRegexp, routeStr, callback) {
                     if(routeRegexp.test(Backbone.history.getHash()) ) {
@@ -51,8 +133,6 @@ define(
                     * fragment match any appRoute and call controller callbacl
                     * */
 
-
-
                     this.forceInvokeRouteHandler(route, routeString, callback);
 
                     Backbone.history.route(route, function(fragment) {
@@ -69,7 +149,9 @@ define(
                 },
 
                 destroy: function() {
-                    var routKeys = _.keys(this.appRoutes).map(function(route) {
+
+                    var args = Array.prototype.slice.call(arguments),
+                        routKeys = _.keys(this.appRoutes).map(function(route) {
                         return this._routeToRegExp(route).toString();
                     }.bind(this));
 
@@ -77,6 +159,16 @@ define(
                         _.indexOf(routKeys, handler.route.toString()) < 0  && memo.push(handler)
                         return memo;
                     }, []);
+
+
+                    Marionette.triggerMethod.apply(this, ['before:destroy'].concat(args));
+                    Marionette.triggerMethod.apply(this, ['destroy'].concat(args));
+
+                    this.stopListening();
+                    this.off();
+
+                    return this;
+
                 }
             })
 
